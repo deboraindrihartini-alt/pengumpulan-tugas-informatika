@@ -1,201 +1,411 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Moses 💙</title>
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Happy Birthday Moses 💙</title>  <style>  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+    font-family:'Poppins',sans-serif;  
+}  
+  
+body{  
+    overflow:hidden;  
+    height:100vh;  
+    background:linear-gradient(135deg,#89CFF0,#4FACFE,#1E3A8A);  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+    color:white;  
+}  
+  
+/* LOVE HUJAN */  
+.love{  
+    position:absolute;  
+    top:-20px;  
+    color:white;  
+    animation:fall linear infinite;  
+    opacity:0.7;  
+}  
+  
+@keyframes fall{  
+    0%{  
+        transform:translateY(-10vh);  
+    }  
+    100%{  
+        transform:translateY(110vh);  
+    }  
+}  
+  
+/* BINTANG */  
+.star{  
+    position:absolute;  
+    width:4px;  
+    height:4px;  
+    background:white;  
+    border-radius:50%;  
+    animation:blink 1s infinite alternate;  
+}  
+  
+@keyframes blink{  
+    from{opacity:0.2;}  
+    to{opacity:1;}  
+}  
+  
+/* OPENING SCREEN */  
+.openingScreen{  
+    position:fixed;  
+    inset:0;  
+    background:linear-gradient(135deg,#89CFF0,#4FACFE,#1E3A8A);  
+    display:flex;  
+    justify-content:center;  
+    align-items:center;  
+    z-index:9999;  
+}  
+  
+.hidden{  
+    display:none;  
+}  
+  
+.openBox{  
+    text-align:center;  
+    background:rgba(255,255,255,0.18);  
+    padding:40px;  
+    border-radius:30px;  
+    backdrop-filter:blur(10px);  
+    box-shadow:0 0 25px rgba(255,255,255,0.3);  
+    animation:fadeIn 1.2s ease;  
+}  
+  
+.openSnoopy{  
+    width:150px;  
+    animation:  
+    float 3s infinite ease-in-out,  
+    dance 2s infinite alternate;  
+}  
+  
+@keyframes float{  
+    0%{  
+        transform:translateY(0px);  
+    }  
+    50%{  
+        transform:translateY(-12px);  
+    }  
+    100%{  
+        transform:translateY(0px);  
+    }  
+}  
+  
+@keyframes dance{  
+    0%{  
+        rotate:-5deg;  
+    }  
+    100%{  
+        rotate:5deg;  
+    }  
+}  
+  
+.openBox h1{  
+    margin-top:15px;  
+}  
+  
+.openBox p{  
+    margin-top:10px;  
+    font-size:18px;  
+}  
+  
+.openBox button{  
+    margin-top:25px;  
+}  
+  
+/* SLIDER */  
+.slider{  
+    width:90%;  
+    max-width:760px;  
+    position:relative;  
+    z-index:2;  
+}  
+  
+/* CARD */  
+.slide{  
+    display:none;  
+    background:rgba(255,255,255,0.18);  
+    backdrop-filter:blur(12px);  
+    padding:35px;  
+    border-radius:30px;  
+    text-align:center;  
+    box-shadow:0 0 25px rgba(255,255,255,0.25);  
+    animation:fade 1s ease;  
+}  
+  
+.slide.active{  
+    display:block;  
+}  
+  
+.snoopy{  
+    width:140px;  
+    margin-bottom:15px;  
+    animation:  
+    float 3s ease-in-out infinite,  
+    dance 2s infinite alternate;  
+}  
+  
+h1{  
+    font-size:38px;  
+    margin-bottom:20px;  
+    text-shadow:0 0 10px #fff;  
+}  
+  
+p{  
+    font-size:18px;  
+    line-height:1.8;  
+}  
+  
+/* BUTTON */  
+.buttons{  
+    margin-top:20px;  
+    display:flex;  
+    justify-content:center;  
+    gap:15px;  
+}  
+  
+button{  
+    padding:12px 24px;  
+    border:none;  
+    border-radius:30px;  
+    background:white;  
+    color:#1E3A8A;  
+    font-weight:bold;  
+    font-size:16px;  
+    cursor:pointer;  
+    transition:0.3s;  
+}  
+  
+button:hover{  
+    transform:scale(1.08);  
+    box-shadow:0 0 20px white;  
+}  
+  
+@keyframes fade{  
+    from{  
+        opacity:0;  
+        transform:translateY(20px);  
+    }  
+    to{  
+        opacity:1;  
+        transform:translateY(0);  
+    }  
+}  
+  
+@keyframes fadeIn{  
+    from{  
+        opacity:0;  
+        transform:scale(0.8);  
+    }  
+    to{  
+        opacity:1;  
+        transform:scale(1);  
+    }  
+}  
+</style>  </head>  <body>  <!-- AUDIO -->  <audio autoplay loop>  
+   <source src="https://files.catbox.moe/8f3p7v.mp3" type="audio/mp3">  
+</audio>  <!-- LOVE HUJAN -->  <script>  
+for(let i=0;i<70;i++){  
+    let love=document.createElement("div");  
+    love.classList.add("love");  
+    love.innerHTML="💙";  
+    love.style.left=Math.random()*100+"vw";  
+    love.style.animationDuration=(Math.random()*4+3)+"s";  
+    love.style.fontSize=(Math.random()*20+15)+"px";  
+    document.body.appendChild(love);  
+}  
+</script>  <!-- BINTANG -->  <div class="star" style="top:10%;left:20%;"></div>  
+<div class="star" style="top:25%;left:80%;"></div>  
+<div class="star" style="top:70%;left:15%;"></div>  
+<div class="star" style="top:85%;left:60%;"></div>  <!-- SCREEN 1 -->  <div class="openingScreen" id="screen1">  <div class="openBox">  
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+    <img   
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png"  
+    class="openSnoopy">  
 
-body{
-    overflow:hidden;
-    height:100vh;
-    background:linear-gradient(135deg,#89CFF0,#4FACFE,#1E3A8A);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-}
+    <h1>🎁 Wait...</h1>  
 
-.love{
-    position:absolute;
-    top:-20px;
-    color:white;
-    animation:fall linear infinite;
-    opacity:0.7;
-}
+    <p>  
+        Are you really Moses? 👀  
+    </p>  
 
-@keyframes fall{
-    0%{transform:translateY(-10vh);}
-    100%{transform:translateY(110vh);}
-}
+    <button onclick="nextScreen(1)">  
+        Yes 💙  
+    </button>  
 
-.star{
-    position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
-    border-radius:50%;
-    animation:blink 1s infinite alternate;
-}
-
-@keyframes blink{
-    from{opacity:0.2;}
-    to{opacity:1;}
-}
-
-.openingScreen{
-    position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#89CFF0,#4FACFE,#1E3A8A);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-.hidden{display:none;}
-
-.openBox{
-    text-align:center;
-    background:rgba(255,255,255,0.18);
-    padding:40px;
-    border-radius:30px;
-    backdrop-filter:blur(10px);
-}
-
-.slider{
-    width:90%;
-    max-width:760px;
-}
-
-.slide{
-    display:none;
-    background:rgba(255,255,255,0.18);
-    padding:35px;
-    border-radius:30px;
-    text-align:center;
-}
-
-.slide.active{display:block;}
-
-.buttons{
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-}
-
-button{
-    padding:12px 24px;
-    border:none;
-    border-radius:30px;
-    background:white;
-    color:#1E3A8A;
-    font-weight:bold;
-}
-</style>
-</head>
-
-<body>
-
-<!-- 🔊 AUDIO FIX -->
-<audio id="musik" loop>
-<source src="https://files.catbox.moe/8f3p7v.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-document.addEventListener("click", function(){
-    document.getElementById("musik").play();
-}, { once: true });
-</script>
-
-<!-- LOVE -->
-<script>
-for(let i=0;i<50;i++){
-    let love=document.createElement("div");
-    love.classList.add("love");
-    love.innerHTML="💙";
-    love.style.left=Math.random()*100+"vw";
-    love.style.animationDuration=(Math.random()*4+3)+"s";
-    love.style.fontSize=(Math.random()*20+15)+"px";
-    document.body.appendChild(love);
-}
-</script>
-
-<!-- SCREEN -->
-<div class="openingScreen" id="screen1">
-<div class="openBox">
-<h1>🎁 Wait...</h1>
-<button onclick="nextScreen(1)">Yes 💙</button>
 </div>
+
+</div>  <!-- SCREEN 2 -->  <div class="openingScreen hidden" id="screen2">  <div class="openBox">  
+
+    <img   
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png"  
+    class="openSnoopy">  
+
+    <h1>🤨 One More Question</h1>  
+
+    <p>  
+        Promise you won't skip the slides? 😭  
+    </p>  
+
+    <button onclick="nextScreen(2)">  
+        Promise ✨  
+    </button>  
+
 </div>
 
-<div class="openingScreen hidden" id="screen2">
-<div class="openBox">
-<h1>Promise?</h1>
-<button onclick="nextScreen(2)">Promise ✨</button>
-</div>
-</div>
+</div>  <!-- SCREEN 3 -->  <div class="openingScreen hidden" id="screen3">  <div class="openBox">  
 
-<div class="openingScreen hidden" id="screen3">
-<div class="openBox">
-<h1>Open Gift 🎁</h1>
-<button onclick="openGift()">Open</button>
-</div>
-</div>
+    <img   
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png"  
+    class="openSnoopy">  
 
-<div class="slider">
-<div class="slide active">
-<h1>🎂 Happy Birthday 🎂</h1>
-<p>Happy birthday Moses 💙</p>
+    <h1>Yaudah Niehh</h1>  
+
+    <p>  
+        yaudah nihh buat booried 💙  
+    </p>  
+
+    <button onclick="openGift()">  
+        finally open 🙄  
+    </button>  
+
 </div>
 
-<div class="slide">
-<h1>✨ I Wish</h1>
-<p>Semoga semua impianmu tercapai ✨</p>
+</div>  <div class="slider">  <!-- SLIDE 1 -->  
+<div class="slide active">  
+
+    <img class="snoopy"  
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png">  
+
+    <h1>🎂 Happy Birthday 🎂</h1>  
+
+    <p>  
+    Happy birthday, Moses! 🎂<br><br>  
+
+    Another year older, another level stronger.  
+    Semoga di umur yang baru ini kamu makin diberkati,  
+    makin kuat jalanin semua proses hidup,  
+    dan semua yang kamu perjuangkan pelan-pelan jadi nyata.  
+    </p>  
+</div>  
+
+<!-- SLIDE 2 -->  
+<div class="slide">  
+
+    <img class="snoopy"  
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png">  
+
+    <h1>💌 About You</h1>  
+
+    <p>  
+    About you… kamu itu orang yang strong  
+    dan ga gampang nyerah walaupun jalannya kadang ga mudah.  
+    Kamu juga orang yang sefrekuensi banget sama aku,  
+    apalagi soal humor—kadang kita bisa ketawa cuma karena hal random.<br><br>  
+
+    Kamu juga suka banget niruin gaya aku pas aku lagi marah-marah,  
+    which is annoying but funny at the same time.  
+    And somehow, kamu juga jadi salah satu tempat  
+    aku cerita dan curhat tentang banyak hal.  
+    </p>  
+</div>  
+
+<!-- SLIDE 3 -->  
+<div class="slide">  
+
+    <img class="snoopy"  
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png">  
+
+    <h1>✨ I Wish</h1>  
+
+    <p>  
+    I wish you a long life,  
+    full of happiness, peace, and endless blessings.<br><br>  
+
+    Semoga Tuhan selalu jaga kamu di setiap langkahmu,  
+    kasih kamu kesehatan, kekuatan,  
+    dan keberanian buat terus kejar semua mimpi kamu.<br><br>  
+
+    I hope every prayer you whisper  
+    and every effort you make  
+    will lead you to the future  
+    you’ve been hoping for.  
+    </p>  
+</div>  
+
+<!-- SLIDE 4 -->  
+<div class="slide">  
+
+    <img class="snoopy"  
+    src="https://upload.wikimedia.org/wikipedia/en/5/53/Snoopy_Peanuts.png">  
+
+    <h1>🤍 For U</h1>  
+
+    <p>  
+    For you, Moses… keep going, keep believing.<br><br>  
+
+    Your story is not finished yet.  
+    The best chapter is still coming.<br><br>  
+
+    And remember,  
+    someone out here always wishes the best for you 💙  
+    </p>  
+</div>  
+
+<!-- BUTTON -->  
+<div class="buttons">  
+    <button onclick="prevSlide()">⬅ Prev</button>  
+    <button onclick="nextSlide()">Next ➡</button>  
 </div>
 
-<div class="buttons">
-<button onclick="prevSlide()">⬅</button>
-<button onclick="nextSlide()">➡</button>
-</div>
-</div>
-
-<script>
-let slides=document.querySelectorAll(".slide");
-let current=0;
-
-function showSlide(i){
-slides.forEach(s=>s.classList.remove("active"));
-slides[i].classList.add("active");
-}
-
-function nextSlide(){
-current=(current+1)%slides.length;
-showSlide(current);
-}
-
-function prevSlide(){
-current=(current-1+slides.length)%slides.length;
-showSlide(current);
-}
-
-function nextScreen(n){
-document.getElementById("screen"+n).style.display="none";
-document.getElementById("screen"+(n+1)).style.display="flex";
-}
-
-function openGift(){
-document.getElementById("screen3").style.display="none";
-}
-</script>
-
-</body>
-</html>
+</div>  <script>  
+let slides = document.querySelectorAll(".slide");  
+let current = 0;  
+  
+function showSlide(index){  
+    slides.forEach(slide=>{  
+        slide.classList.remove("active");  
+    });  
+  
+    slides[index].classList.add("active");  
+}  
+  
+function nextSlide(){  
+    current++;  
+  
+    if(current >= slides.length){  
+        current = 0;  
+    }  
+  
+    showSlide(current);  
+}  
+  
+function prevSlide(){  
+    current--;  
+  
+    if(current < 0){  
+        current = slides.length - 1;  
+    }  
+  
+    showSlide(current);  
+}  
+  
+function nextScreen(number){  
+  
+    document.getElementById("screen"+number).style.display="none";  
+  
+    document.getElementById("screen"+(number+1)).style.display="flex";  
+}  
+  
+function openGift(){  
+  
+    document.getElementById("screen3").style.display="none";  
+}  
+</script>  </body>  
+</html>  
